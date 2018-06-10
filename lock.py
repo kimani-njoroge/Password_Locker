@@ -81,4 +81,22 @@ class Credentials:
             file.write("\n")
             file.close()
 
+    def view_credentials(self):
+        print("confirm usernmae to view credntials")
+        name = input("username: ")
+        file = open("mastcred.txt", "r")
+        for line in file.readlines():
+            login_info = line.split()
+            if (name in login_info):
+                print("Success")
+                nfile = open(f"{name}.txt","r")
+                for line in nfile.readlines():
+                    userinfo = line.split()
+                    for entry in userinfo:
+                        print(entry)
+                return True
+        print("access denied")
+        return False
+
+
 all()
