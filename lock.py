@@ -12,7 +12,7 @@ def all():
         cred.create_credentials()
     elif calls == "viewc":
         login()
-        cred.show_credentials()\
+        cred.show_credentials()
 
 def login():
     print('Logging in')
@@ -22,11 +22,13 @@ def login():
         login_info = line.split()
         if username == login_info[0] and password == login_info[1]:
             print("correct creds")
+            # inline_codes()
             return True
 
     print("incorrect")
 
     return False
+
 
 
 class User:
@@ -53,4 +55,22 @@ class Credentials:
     Class that generates new instances of credentials
 
     """
+    def create_credentials(self):
+    print("confirm your username")
+    name = input("username: ")
+    file = open("mastcred.txt", "r")
+    for line in file.readlines():
+        login_info = line.split()
+        if (name in login_info):
+            print("you can now create your credentials")
+            print("Please enter the credentials of your choice")
+            account = input('Account: ')
+            accntpassword = input('A/c Password: ')
+            file = open(f"{name}.txt","a")
+            file.write(account)
+            file.write(" ")
+            file.write(accntpassword)
+            file.write("\n")
+            file.close()
+
 all()
