@@ -12,7 +12,21 @@ def all():
         cred.create_credentials()
     elif calls == "viewc":
         login()
-        cred.show_credentials()
+        cred.show_credentials()\
+
+def login():
+    print('Logging in')
+    username = input('Please enter username: ')
+    password = input('Please enter password: ')
+    for line in open("mastcred.txt","r").readlines():
+        login_info = line.split()
+        if username == login_info[0] and password == login_info[1]:
+            print("correct creds")
+            return True
+
+    print("incorrect")
+
+    return False
 
 
 class User:
