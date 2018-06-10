@@ -8,7 +8,12 @@ class User:
     Class that generates new instances of users
 
     """
-    pass
+
+    def add_user(self):
+        print('Creating user, please choose username and password')
+        username = input('Username: ')
+        password = input('Password: ')
+    
 
 class Credentials:
     """
