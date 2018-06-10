@@ -22,7 +22,7 @@ def login():
         login_info = line.split()
         if username == login_info[0] and password == login_info[1]:
             print("correct creds")
-            
+            inline_codes()
             return True
 
     print("incorrect")
