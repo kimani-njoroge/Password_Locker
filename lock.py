@@ -33,10 +33,16 @@ def inline_codes():
     '''
     Function that allows one to navigate users menu
     '''
-    print("Calls\n ncred-create credentials")
+    print("Calls\n ncred-create credentials\n vcred-view user credentials \n pgen-generate password \n pcopy-coppy password to clipboard")
     inline_calls = input("inline call: ")
     if inline_calls == "ncred":
         cred.create_credentials()
+    elif inline_calls == "vcred":
+        cred.view_credentials()
+    elif inline_calls == "pgen":
+        cred.pass_gen()
+    elif inline_calls == "pcopy":
+        cred.pass_copy()
 
 
 class User:
