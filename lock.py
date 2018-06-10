@@ -22,13 +22,21 @@ def login():
         login_info = line.split()
         if username == login_info[0] and password == login_info[1]:
             print("correct creds")
-            # inline_codes()
+            
             return True
 
     print("incorrect")
 
     return False
 
+def inline_codes():
+    '''
+    Function that allows one to navigate users menu
+    '''
+    print("Calls\n ncred-create credentials")
+    inline_calls = input("inline call: ")
+    if inline_calls == "ncred":
+        cred.create_credentials()
 
 
 class User:
