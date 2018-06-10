@@ -2,14 +2,14 @@ def all():
     '''
     This function holds all data methods
     '''
-    print("log-for old user","new-new user \n newc-new credentials")
+    print("log-for old user\n new-new user")
     calls = input("call: ")
     if calls == "new":
         user.add_user()
         all()
     elif calls == "log":
         login()
-    
+
 
 def login():
     print('Logging in')
@@ -59,7 +59,7 @@ class User:
         file.write(password)
         file.write("\n")
         file.close()
-
+user=User()
 
 class Credentials:
     """
@@ -83,8 +83,6 @@ class Credentials:
                 file.write(accntpassword)
                 file.write("\n")
                 file.close()
-
-user=User()
 
     def view_credentials(self):
         print("confirm usernmae to view credntials")
