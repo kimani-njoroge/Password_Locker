@@ -123,6 +123,30 @@ class Credentials:
         print("access denied")
         return False
 
+    def pass_copy(self):
+
+        import pyperclip
+        print("confirm username to copy password")
+        name = input("username: ")
+        file = open("mastcred.txt", "r")
+        for line in file.readlines():
+            login_info = line.split()
+            if (name in login_info):
+                print("Success")
+                print("Input name of account you want password copied")
+                account = input("Account: ")
+                cfile = open(f"{name}.txt","r")
+                for line in cfile.readlines():
+                    infocopy = line.split()
+                    if (account in infocopy):
+
+                        infocopy = line.split()
+                        pyperclip.copy(infocopy)
+                        print("success")
+                        return(infocopy)
+                    return True
+        print("access denied")
+        return False
 
 
 all()
