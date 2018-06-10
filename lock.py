@@ -2,17 +2,14 @@ def all():
     '''
     This function holds all data methods
     '''
-    print("log-for old user","new-new user","newc-new credentials","viewc-view credentials")
+    print("log-for old user","new-new user \n newc-new credentials")
     calls = input("call: ")
     if calls == "new":
         user.add_user()
         all()
     elif calls == "log":
         login()
-        cred.create_credentials()
-    elif calls == "viewc":
-        login()
-        cred.show_credentials()
+    
 
 def login():
     print('Logging in')
@@ -70,22 +67,24 @@ class Credentials:
 
     """
     def create_credentials(self):
-    print("confirm your username")
-    name = input("username: ")
-    file = open("mastcred.txt", "r")
-    for line in file.readlines():
-        login_info = line.split()
-        if (name in login_info):
-            print("you can now create your credentials")
-            print("Please enter the credentials of your choice")
-            account = input('Account: ')
-            accntpassword = input('A/c Password: ')
-            file = open(f"{name}.txt","a")
-            file.write(account)
-            file.write(" ")
-            file.write(accntpassword)
-            file.write("\n")
-            file.close()
+        print("confirm your username")
+        name = input("username: ")
+        file = open("mastcred.txt", "r")
+        for line in file.readlines():
+            login_info = line.split()
+            if (name in login_info):
+                print("you can now create your credentials")
+                print("Please enter the credentials of your choice")
+                account = input('Account: ')
+                accntpassword = input('A/c Password: ')
+                file = open(f"{name}.txt","a")
+                file.write(account)
+                file.write(" ")
+                file.write(accntpassword)
+                file.write("\n")
+                file.close()
+
+user=User()
 
     def view_credentials(self):
         print("confirm usernmae to view credntials")
@@ -153,6 +152,7 @@ class Credentials:
                     return True
         print("access denied")
         return False
+cred=Credentials()
 
 
 all()
