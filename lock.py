@@ -98,5 +98,31 @@ class Credentials:
         print("access denied")
         return False
 
+    def pass_gen(self):
+
+        import secrets
+        import string
+        print("confirm username to generate password")
+        name = input("username: ")
+        file = open("mastcred.txt", "r")
+        for line in file.readlines():
+            login_info = line.split()
+            if (name in login_info):
+                print("Success")
+                print("Enter account to be assigned passkey")
+                account = input('Account: ')
+                alphabet = string.ascii_letters + string.digits
+                accntpassword = ''.join(secrets.choice(alphabet) for i in range(20))
+                file = open(f"{name}.txt","a")
+                file.write(account)
+                file.write(" ")
+                file.write(accntpassword)
+                file.write("\n")
+                file.close()
+                return True
+        print("access denied")
+        return False
+
+
 
 all()
